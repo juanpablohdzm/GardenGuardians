@@ -33,3 +33,5 @@ sysinfo.txt
 *.apk
 *.unitypackage
 GlitchGarden/Library/metadata/
+
+*.meta
