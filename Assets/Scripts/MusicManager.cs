@@ -3,7 +3,10 @@ using UnityEngine.SceneManagement;
 
 public class MusicManager : MonoBehaviour {
     public AudioClip[] LevelMusicChangeArray;
+
     private AudioSource audioSource;
+    private AudioClip PreviousClip;
+    private AudioClip ThisLevelClip;
 
     void Awake()
     {
@@ -20,9 +23,11 @@ public class MusicManager : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
-        AudioClip ThisLevelClip = LevelMusicChangeArray[level];
-        if (ThisLevelClip != null)
+        
+         ThisLevelClip = LevelMusicChangeArray[level];
+        if (ThisLevelClip != null && ThisLevelClip!=PreviousClip)
         {
+            PreviousClip = ThisLevelClip;
             audioSource.clip = ThisLevelClip;
             audioSource.loop = true;
             audioSource.Play();

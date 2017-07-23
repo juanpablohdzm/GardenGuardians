@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour {
     private void Start()
     {
         //Delay for splash screen
+        if(AutoLoadLevelTime>0)
         Invoke("LoadNextLevel", AutoLoadLevelTime);
        
     }
