@@ -15,8 +15,12 @@ public class projectile : MonoBehaviour {
         transform.Translate(Vector3.right * Speed * Time.deltaTime);
 	}
 
-    private void OnBecameInvisible()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.GetComponent<Attacker>())
+        {
+            collision.GetComponent<Health>().DealDamage(Damage);
+            Destroy(gameObject);
+        }
     }
 }
