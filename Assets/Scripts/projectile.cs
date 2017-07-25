@@ -14,4 +14,9 @@ public class projectile : MonoBehaviour {
 	void Update () {
         transform.Translate(Vector3.right * Speed * Time.deltaTime);
 	}
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }
