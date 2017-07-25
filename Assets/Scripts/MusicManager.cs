@@ -31,6 +31,7 @@ public class MusicManager : MonoBehaviour {
             audioSource.clip = ThisLevelClip;
             audioSource.loop = true;
             audioSource.Play();
+            //Fix problem starting game without going to options to change volume 
             if(PlayerPrefsManager.GetMasterVolume()!=0)
             audioSource.volume = PlayerPrefsManager.GetMasterVolume();
         }
