@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 95715266787857734}
   - component: {fileID: 114516307226683620}
   - component: {fileID: 61682617815597596}
+  - component: {fileID: 114865439731379700}
+  - component: {fileID: 114599860949369234}
   m_Layer: 0
   m_Name: Lizard
   m_TagString: Untagged
@@ -52,7 +54,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1242558976862690}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4, y: 3, z: 0}
+  m_LocalPosition: {x: 9, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4934121423257420}
@@ -125,7 +127,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd2278c660e764a42acf64b40ccedd7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CurrentSpeed: 0
+--- !u!114 &114599860949369234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242558976862690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aebed7f692de4f1408e290f8f91dcee7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 0
+--- !u!114 &114865439731379700
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1242558976862690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb173f579bde0c49acf0a7adf67747e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212471770019847128
 SpriteRenderer:
   m_ObjectHideFlags: 1
