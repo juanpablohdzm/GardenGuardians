@@ -3,6 +3,7 @@
 public class Defenders : MonoBehaviour {
 
     private StarDisplay starDisplay;
+    public int StarCost = 100;
 
     private void Start()
     {

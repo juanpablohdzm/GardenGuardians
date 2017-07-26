@@ -3,11 +3,15 @@
 public class DefendersSpawner : MonoBehaviour {
 
     private static GameObject DefenderParent;
+    private StarDisplay starDisplay;
+
 	// Use this for initialization
 	void Start () {
         DefenderParent = GameObject.Find("Defenders");
         if (!DefenderParent)
             DefenderParent = new GameObject("Defenders");
+        starDisplay = GameObject.FindObjectOfType<StarDisplay>();
+        
 	}
 	
 	// Update is called once per frame
@@ -17,8 +21,12 @@ public class DefendersSpawner : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        GameObject DefenderClone=Instantiate(Button.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity);
-        DefenderClone.transform.parent = DefenderParent.transform;
+        if (starDisplay.UseStars(Button.SelectDefender.GetComponent<Defenders>().StarCost) == StarDisplay.Status.SUCCESS)
+        {
+            GameObject DefenderClone = Instantiate(Button.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity);
+            DefenderClone.transform.parent = DefenderParent.transform;
+            starDisplay.UpdateDisplay();
+        }
      
     }
     private Vector2 SnapToGrid(Vector2 WorldPosition)
