@@ -2,6 +2,16 @@
 
 public class Defenders : MonoBehaviour {
 
-    
-	//Use as tag
+    private StarDisplay starDisplay;
+
+    private void Start()
+    {
+        starDisplay = GameObject.FindObjectOfType<StarDisplay>();
+    }
+    public void AddStars(int stars)
+    {
+        starDisplay.AddStars(stars);
+    }
+
+   
 }
