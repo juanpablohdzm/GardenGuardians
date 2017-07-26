@@ -3,12 +3,12 @@
 public class AttackersSpawners : MonoBehaviour
 {
     public GameObject[] SpawnMinions;
-    
+    public static bool CanSpawn = true;
 
     private void Update()
     {
         foreach (GameObject ThisAttacker in SpawnMinions)
-            if (IsTimeToSpawn(ThisAttacker))
+            if (IsTimeToSpawn(ThisAttacker) && CanSpawn)
                 Spawn(ThisAttacker);
     }
 

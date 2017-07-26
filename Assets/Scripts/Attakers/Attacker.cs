@@ -21,6 +21,10 @@ public class Attacker : MonoBehaviour {
         if (!Enemy)
             animator.SetBool("IsAttacking", false);
         transform.Translate(Vector2.left * CurrentSpeed * Time.deltaTime);
+        if(!AttackersSpawners.CanSpawn)
+        {
+            Destroy(gameObject);
+        }
 	}
     //Called at the animator at the time to move
     public void SetCurrentSpeed(float Speed)

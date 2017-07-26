@@ -13,7 +13,9 @@ public class projectile : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         transform.Translate(Vector3.right * Speed * Time.deltaTime);
-	}
+        if (!AttackersSpawners.CanSpawn)
+            Destroy(gameObject);
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

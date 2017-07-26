@@ -13,6 +13,10 @@ public class Defenders : MonoBehaviour {
     {
         starDisplay.AddStars(stars);
     }
+    public void Update()
+    {
+        if (!AttackersSpawners.CanSpawn)
+            Destroy(gameObject);
+    }
 
-   
 }

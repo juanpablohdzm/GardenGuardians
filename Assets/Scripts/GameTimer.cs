@@ -35,7 +35,7 @@ public class GameTimer : MonoBehaviour
 
     private void OnCompleteLevel()
     {
-     
+        AttackersSpawners.CanSpawn = false;
         CompleteSound.Play();
         WinScreen.SetActive(true);
         Invoke("NextLevel", CompleteSound.clip.length);
