@@ -55,8 +55,6 @@ public class Shooter : MonoBehaviour
 
     private void Fire()
     {
-        GameObject ProjectileClone = Instantiate(Projectile);
-        ProjectileClone.transform.parent = ProjectileParent.transform;
-        Projectile.transform.SetPositionAndRotation(transform.Find("Gun").transform.position, Quaternion.identity);
+        GameObject ProjectileClone = Instantiate(Projectile, transform.Find("Gun").transform.position, Quaternion.identity, ProjectileParent.transform);
     }
 }

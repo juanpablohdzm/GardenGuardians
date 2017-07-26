@@ -1,16 +1,51 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿
 using UnityEngine;
+using UnityEngine.UI;
 
-public class GameTimer : MonoBehaviour {
+[RequireComponent(typeof(AudioSource))]
+public class GameTimer : MonoBehaviour
+{
+    
+    public float LevelTimeInSeconds;
+    public LevelManager levelManager;
+    public GameObject WinScreen;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    private AudioSource CompleteSound;
+    private Slider slider;
+    private bool IsEndOfLevel=false;
+
+    private void Start()
+    {
+        slider = transform.GetComponent<Slider>();
+        slider.maxValue = LevelTimeInSeconds;
+        CompleteSound = GetComponent<AudioSource>();
+        
+
+    }
+
+    private void Update()
+    {
+        slider.value += 1f * Time.deltaTime;
+        if (slider.value == LevelTimeInSeconds && !IsEndOfLevel)
+        {
+            OnCompleteLevel();
+            IsEndOfLevel = true;
+        }
+    }
+
+    private void OnCompleteLevel()
+    {
+     
+        CompleteSound.Play();
+        WinScreen.SetActive(true);
+        Invoke("NextLevel", CompleteSound.clip.length);
+       
+    }
+
+    private void NextLevel()
+    {
+        levelManager.LoadNextLevel();
+    }
+
+
 }
