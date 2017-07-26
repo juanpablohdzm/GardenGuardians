@@ -31,7 +31,6 @@ public class AttackersSpawners : MonoBehaviour
         }
 
         float threshold = Rate * Time.deltaTime/5;
-        print(Time.deltaTime);
         if (Random.value < threshold)
             return true;
         else
