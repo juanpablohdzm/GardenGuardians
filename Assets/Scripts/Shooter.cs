@@ -3,7 +3,15 @@
 public class Shooter : MonoBehaviour
 {
 
-    public GameObject Projectile, ProjectileParent;
+    public GameObject Projectile;
+    private static GameObject ProjectileParent;
+    
+    private void Start()
+    {
+        ProjectileParent = GameObject.Find("Projectiles");
+        if(ProjectileParent==null)
+        ProjectileParent = new GameObject("Projectiles");
+    }
 
     private void Fire()
     {
