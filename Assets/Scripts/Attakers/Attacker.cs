@@ -2,7 +2,7 @@
 
 public class Attacker : MonoBehaviour {
 
-    [Tooltip("Average spawn in seconds per layer between apearances")]
+    [Tooltip("Average spawn in seconds per layer between appearances")]
     public float SeenEverySeconds;
     private GameObject Enemy;
     private float CurrentSpeed;

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour {
@@ -9,6 +10,7 @@ public class LevelManager : MonoBehaviour {
         //Delay for splash screen
         if(AutoLoadLevelTime>0)
         Invoke("LoadNextLevel", AutoLoadLevelTime);
+        AttackersSpawners.CanSpawn = true;
        
     }
     public void LoadLevel(string name)
@@ -23,8 +25,11 @@ public class LevelManager : MonoBehaviour {
 
     public void LoadNextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        int NextScene = SceneManager.GetActiveScene().buildIndex+1;
+        SceneManager.LoadScene(NextScene);
        
     }
+
+   
 
 }

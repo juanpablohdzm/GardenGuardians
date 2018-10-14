@@ -30,7 +30,7 @@ public class Button : MonoBehaviour
     {
         for (int i = 0; i < buttonArray.Length; i++)
         {
-            if (buttonArray[i].gameObject == GetComponent<Button>().gameObject)
+            if (buttonArray[i].gameObject == this.gameObject)
             {
                
                 GetComponent<SpriteRenderer>().color = Color.white;

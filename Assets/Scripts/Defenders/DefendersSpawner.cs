@@ -23,7 +23,10 @@ public class DefendersSpawner : MonoBehaviour {
     {
         if (starDisplay.UseStars(Button.SelectDefender.GetComponent<Defenders>().StarCost) == StarDisplay.Status.SUCCESS)
         {
-            GameObject DefenderClone = Instantiate(Button.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity);
+
+
+            GameObject DefenderClone = Instantiate(Button.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity) as GameObject;
+
             DefenderClone.transform.parent = DefenderParent.transform;
             starDisplay.UpdateDisplay();
         }
