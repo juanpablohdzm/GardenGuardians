@@ -7,6 +7,7 @@ public class LevelManager : MonoBehaviour {
 
     private void Start()
     {
+        FindObjectOfType<MusicManager>().PlayTrack(SceneManager.GetActiveScene().buildIndex);
         //Delay for splash screen
         if(AutoLoadLevelTime>0)
         Invoke("LoadNextLevel", AutoLoadLevelTime);

@@ -11,30 +11,36 @@ public class MusicManager : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
-        
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
+       
+        ThisLevelClip = LevelMusicChangeArray[0];
+        PreviousClip = ThisLevelClip;
+        audioSource.clip = ThisLevelClip;
+        audioSource.loop = false;
+        //Fix problem starting game without going to options to change volume 
+        if (PlayerPrefsManager.GetMasterVolume() != 0)
+            audioSource.volume = PlayerPrefsManager.GetMasterVolume();
+        
+        audioSource.Play();
 
-        ThisLevelClip = LevelMusicChangeArray[SceneManager.GetActiveScene().buildIndex];
+    }
+
+    public void PlayTrack(int SceneTrack)
+    {
+        ThisLevelClip = LevelMusicChangeArray[SceneTrack];
         if (ThisLevelClip != null && ThisLevelClip != PreviousClip)
         {
             PreviousClip = ThisLevelClip;
             audioSource.clip = ThisLevelClip;
             audioSource.loop = true;
             audioSource.Play();
-            //Fix problem starting game without going to options to change volume 
-            if (PlayerPrefsManager.GetMasterVolume() != 0)
-                audioSource.volume = PlayerPrefsManager.GetMasterVolume();
         }
 
-        audioSource = gameObject.GetComponent<AudioSource>();
-        audioSource.clip = LevelMusicChangeArray[0];
-        audioSource.Play();
     }
-
- 
 
     public void ChangeVolume(float Volume)
     {
