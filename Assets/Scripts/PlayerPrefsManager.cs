@@ -25,21 +25,17 @@ public class PlayerPrefsManager : MonoBehaviour {
 
     public static void SetUnlockLevel(int level)
     {
-        if (level <= SceneManager.sceneCount - 1)
             PlayerPrefs.SetInt(LEVEL_UNLOCKED_KEY + level, 1);// 1 used as bool
-        else
-            Debug.LogWarning("Level not in build manager");
     }
 
     public static bool GetUnlockLevel(int level)
     {
-        if(level <= SceneManager.sceneCount - 1)
+       
             if (PlayerPrefs.GetInt(LEVEL_UNLOCKED_KEY + level) == 1)
                 return true;
             else
                 Debug.LogWarning("Level  locked");
-        else
-            Debug.LogWarning("Level  not exist");
+        
         return false;
     }
 

@@ -1,6 +1,7 @@
 ﻿
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(AudioSource))]
 public class GameTimer : MonoBehaviour
@@ -38,7 +39,7 @@ public class GameTimer : MonoBehaviour
         AttackersSpawners.CanSpawn = false;
         CompleteSound.Play();
         WinScreen.SetActive(true);
-        print(CompleteSound.clip.length);
+        PlayerPrefsManager.SetUnlockLevel(SceneManager.GetActiveScene().buildIndex - 1);
         Invoke("NextLevel", CompleteSound.clip.length);
        
     }
