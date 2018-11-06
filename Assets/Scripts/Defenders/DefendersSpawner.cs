@@ -11,6 +11,7 @@ public class DefendersSpawner : MonoBehaviour {
         if (!DefenderParent)
             DefenderParent = new GameObject("Defenders");
         starDisplay = GameObject.FindObjectOfType<StarDisplay>();
+        if (!starDisplay) print("Not star display");
         
 	}
 	
@@ -21,14 +22,18 @@ public class DefendersSpawner : MonoBehaviour {
 
     private void OnMouseDown()
     {
-        if (starDisplay.UseStars(Button.SelectDefender.GetComponent<Defenders>().StarCost) == StarDisplay.Status.SUCCESS)
+        if (starDisplay.UseStars(MyButton.SelectDefender.GetComponent<Defenders>().StarCost) == StarDisplay.Status.SUCCESS)
         {
 
 
-            GameObject DefenderClone = Instantiate(Button.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity) as GameObject;
+            GameObject DefenderClone = Instantiate(MyButton.SelectDefender, SnapToGrid(CalculateWorldPointOfMouseClick()), Quaternion.identity) as GameObject;
 
             DefenderClone.transform.parent = DefenderParent.transform;
             starDisplay.UpdateDisplay();
+        }
+        else
+        {
+            print("Not stars");
         }
      
     }
