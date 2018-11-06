@@ -37,7 +37,8 @@ public class MyButton : MonoBehaviour
     }
     private void OnClickButton()
     {
-        print("Click: " + this.gameObject.name);
+
+
         selected = this.gameObject;
         SelectDefender = DefenderPrefab;
         image.color = Color.white;
