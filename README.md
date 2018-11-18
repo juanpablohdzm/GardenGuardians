@@ -1,6 +1,6 @@
-# GlitchGarden
+# GardenGuardians
 
-<h2> GlitchGarden</h2>
+<h2> GardenGuardians</h2>
 
 <h3> Those animals won't leave me alone!! </h3>
  
