@@ -359,7 +359,7 @@ Prefab:
     - target: {fileID: 114902816388638554, guid: fd2be41a46b484b42994024d6225b9e5,
         type: 2}
       propertyPath: LevelTimeInSeconds
-      value: 6
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114902816388638554, guid: fd2be41a46b484b42994024d6225b9e5,
         type: 2}
