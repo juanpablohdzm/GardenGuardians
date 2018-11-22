@@ -11,7 +11,7 @@ public class MyButton : MonoBehaviour
 
 
     public static GameObject SelectDefender;
-    private static GameObject selected;
+    public static GameObject selected;
     // Use this for initialization
     void Start()
     {

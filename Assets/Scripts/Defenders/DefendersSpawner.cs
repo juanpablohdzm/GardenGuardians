@@ -2,7 +2,7 @@
 
 public class DefendersSpawner : MonoBehaviour {
 
-    private static GameObject DefenderParent;
+    public static GameObject DefenderParent;
     private StarDisplay starDisplay;
 
 	// Use this for initialization

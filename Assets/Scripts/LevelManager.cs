@@ -31,6 +31,20 @@ public class LevelManager : MonoBehaviour {
        
     }
 
+    public void StopTime(bool shouldStop)
+    {
+        if (shouldStop)
+        {
+            Time.timeScale = 0;
+            MyButton.selected = null;
+            MyButton.SelectDefender = null;
+        }
+        else
+        {
+            Time.timeScale = 1;
+        }
+    }
+
    
 
 }
